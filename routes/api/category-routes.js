@@ -15,8 +15,8 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const categoryData = await Category.findbyPk(req.params.id, {
-      include: [{mdoel: Product}],
+    const categoryData = await Category.findByPk(req.params.id, {
+      include: [{model: Product}],
     });
 
     if (!categoryData) {
@@ -44,7 +44,7 @@ router.put('/:id', async (req, res) => {
   try {
     const categoryData = await Category.update(
       {
-        Category_name: req.body.Category_name
+        category_name: req.body.category_name
       },
       {
         where: {
